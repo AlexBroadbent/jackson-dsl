@@ -1,5 +1,6 @@
 
 ![Github Actions Build](https://img.shields.io/github/workflow/status/ajab/jackson-dsl/CI)
+![Codecov](https://img.shields.io/codecov/c/github/ajab/jackson-dsl)
 
 ---
 
