@@ -2,6 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.60"
+    jacoco
+    java
 }
 
 apply(plugin = "kotlin")
@@ -20,8 +22,24 @@ dependencies {
     testImplementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
 }
 
+jacoco {
+    toolVersion = "0.8.5"
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.apply {
+            isEnabled = true
+            destination = file("$buildDir/reports/jacoco/report.xml")
+        }
+        csv.isEnabled = false
+        html.isEnabled = false
+    }
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
 }
 
 val compileKotlin: KotlinCompile by tasks
