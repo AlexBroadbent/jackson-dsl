@@ -1,3 +1,8 @@
+
+![Github Actions Build](https://img.shields.io/github/workflow/status/ajab/jackson-dsl/CI)
+
+---
+
 # Jackson DSL
 
 
