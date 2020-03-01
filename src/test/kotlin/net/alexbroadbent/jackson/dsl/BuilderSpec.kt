@@ -1,4 +1,4 @@
-package io.ajab.jackson.dsl
+package net.alexbroadbent.jackson.dsl
 
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.kotlintest.IsolationMode
