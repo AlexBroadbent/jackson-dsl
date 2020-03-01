@@ -115,6 +115,63 @@ class BuilderSpec : ShouldSpec({
 
             json shouldBe JsonObject(expected as ObjectNode)
         }
+
+        should("build with shortened names object") {
+            val json = obj {
+                int("one", 213)
+                arr("two") {
+                    boolean(false)
+                    obj {
+                        string("three", "bar")
+                    }
+                }
+                obj("four") {
+                    double("five", 3.14)
+                }
+            }
+
+            val expected = mapper.createObjectNode()
+                .put("one", 213)
+                .set<ObjectNode>(
+                    "two", mapper.createArrayNode()
+                        .add(false)
+                        .add(
+                            mapper.createObjectNode()
+                                .put("three", "bar")
+                        )
+                )
+                .set<ObjectNode>(
+                    "four", mapper.createObjectNode()
+                        .put("five", 3.14)
+                )
+
+            json shouldBe JsonObject(expected)
+        }
+
+        should("build with shortened names array") {
+            val json = arr {
+                int(213)
+                arr {
+                    boolean(false)
+                }
+                obj {
+                    double("one", 3.14)
+                }
+            }
+
+            val expected = mapper.createArrayNode()
+                .add(213)
+                .add(
+                    mapper.createArrayNode()
+                        .add(false)
+                )
+                .add(
+                    mapper.createObjectNode()
+                        .put("one", 3.14)
+                )
+
+            json shouldBe JsonArray(expected)
+        }
     }
 }) {
 
