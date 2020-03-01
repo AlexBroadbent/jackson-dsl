@@ -1,4 +1,4 @@
-package io.ajab.jackson.dsl
+package net.alexbroadbent.jackson.dsl
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ArrayNode
@@ -39,15 +39,21 @@ class JsonObject(node: ObjectNode = mapper.createObjectNode()) : JacksonObject(n
 
     fun arr(key: String, value: JsonArray.() -> Unit) = array(key, value)
 
-    fun string(key: String, value: String) = set(key, StringValue(value))
+    fun string(key: String, value: String) = set(key,
+        StringValue(value)
+    )
 
     fun int(key: String, value: Int) = set(key, IntegerValue(value))
 
     fun long(key: String, value: Long) = set(key, LongValue(value))
 
-    fun double(key: String, value: Double) = set(key, DoubleValue(value))
+    fun double(key: String, value: Double) = set(key,
+        DoubleValue(value)
+    )
 
-    fun boolean(key: String, value: Boolean) = set(key, BooleanValue(value))
+    fun boolean(key: String, value: Boolean) = set(key,
+        BooleanValue(value)
+    )
 
     private fun set(key: String, value: JacksonObject) {
         (node as ObjectNode).replace(key, value.node)
@@ -93,8 +99,10 @@ class BooleanValue(value: Boolean) : JsonPrimitive(BooleanNode.valueOf(value))
 
 fun `object`(init: JsonObject.() -> Unit): JsonObject = JsonObject().apply(init)
 
-fun obj(init: JsonObject.() -> Unit): JsonObject = `object`(init)
+fun obj(init: JsonObject.() -> Unit): JsonObject =
+    `object`(init)
 
 fun array(init: JsonArray.() -> Unit): JsonArray = JsonArray().apply(init)
 
-fun arr(init: JsonArray.() -> Unit): JsonArray = array(init)
+fun arr(init: JsonArray.() -> Unit): JsonArray =
+    array(init)
