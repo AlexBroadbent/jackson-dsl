@@ -31,9 +31,13 @@ abstract class JacksonObject(val node: JsonNode) {
 
 class JsonObject(node: ObjectNode = mapper.createObjectNode()) : JacksonObject(node) {
 
+    fun `object`(key: String, value: JsonObject.() -> Unit) = set(key, JsonObject().apply(value))
+
+    fun obj(key: String, value: JsonObject.() -> Unit) = `object`(key, value)
+
     fun array(key: String, value: JsonArray.() -> Unit) = set(key, JsonArray().apply(value))
 
-    fun `object`(key: String, value: JsonObject.() -> Unit) = set(key, JsonObject().apply(value))
+    fun arr(key: String, value: JsonArray.() -> Unit) = array(key, value)
 
     fun string(key: String, value: String) = set(key, StringValue(value))
 
@@ -54,7 +58,11 @@ class JsonArray(array: ArrayNode = mapper.createArrayNode()) : JacksonObject(arr
 
     fun `object`(value: JsonObject.() -> Unit) = add(JsonObject().apply(value))
 
+    fun obj(value: JsonObject.() -> Unit) = `object`(value)
+
     fun array(value: JsonArray.() -> Unit) = add(JsonArray().apply(value))
+
+    fun arr(value: JsonArray.() -> Unit) = array(value)
 
     fun string(value: String) = add(StringValue(value))
 
@@ -85,4 +93,8 @@ class BooleanValue(value: Boolean) : JsonPrimitive(BooleanNode.valueOf(value))
 
 fun `object`(init: JsonObject.() -> Unit): JsonObject = JsonObject().apply(init)
 
+fun obj(init: JsonObject.() -> Unit): JsonObject = `object`(init)
+
 fun array(init: JsonArray.() -> Unit): JsonArray = JsonArray().apply(init)
+
+fun arr(init: JsonArray.() -> Unit): JsonArray = array(init)
