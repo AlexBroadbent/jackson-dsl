@@ -1,6 +1,7 @@
 
 ![Github Actions Build](https://img.shields.io/github/workflow/status/ajab/jackson-dsl/CI)
 ![Codecov](https://img.shields.io/codecov/c/github/ajab/jackson-dsl)
+[![Download](https://api.bintray.com/packages/ajab/Jackson-DSL/jackson-dsl/images/download.svg)](https://bintray.com/ajab/Jackson-DSL/jackson-dsl/_latestVersion)
 
 ---
 
