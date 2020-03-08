@@ -1,12 +1,20 @@
+import java.util.Date
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.60"
     jacoco
     java
+
+    `maven-publish`
+    id("com.jfrog.bintray") version "1.8.4"
 }
 
+group = "net.alexbroadbent"
+version = "0.1.0"
+
 apply(plugin = "kotlin")
+apply(plugin = "maven-publish")
 
 repositories {
     jcenter()
@@ -50,4 +58,72 @@ compileKotlin.kotlinOptions {
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
+}
+
+val sourcesJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.get().allSource)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("kotlin-dsl") {
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = project.version.toString()
+            from(components["java"])
+
+            artifact(sourcesJar)
+
+            pom.withXml {
+                asNode().apply {
+                    appendNode("description", "https://github.com/ajab/jackson-dsl")
+                    appendNode("name", rootProject.name)
+                    appendNode("url", "https://github.com/ajab/jackson-dsl")
+
+                    appendNode("licenses").appendNode("license").apply {
+
+                    }
+                    appendNode("developers").appendNode("developer").apply {
+                        appendNode("id", "ajab")
+                        appendNode("name", "Alex Broadbent")
+                    }
+                    appendNode("scm").apply {
+                        appendNode("url", "https://github.com/ajab/jackson-dsl")
+                    }
+                }
+            }
+        }
+    }
+}
+
+bintray {
+    user = project.findProperty("bintrayUser").toString()
+    key = project.findProperty("bintrayKey").toString()
+    publish = true
+
+    setPublications("kotlin-dsl")
+
+    pkg.apply {
+        repo = "Jackson-DSL"
+        name = project.name
+        userOrg = "ajab"
+
+        githubRepo = "https://github.com/ajab/jackson-dsl"
+        vcsUrl = "https://github.com/ajab/jackson-dsl.git"
+        description = "A type-safe builder wrapped around the Jackson JSON library"
+        setLabels("kotlin", "jackson", "dsl", "extension")
+        setLicenses("MIT")
+        desc = description
+        websiteUrl = "https://github.com/ajab/jackson-dsl"
+        issueTrackerUrl = "https://github.com/ajab/jackson-dsl/issues"
+        githubReleaseNotesFile = "README.md"
+
+        version.apply {
+            name = project.version.toString()
+            desc = "https://github.com/ajab/jackson-dsl"
+            released = Date().toString()
+            vcsTag = project.version.toString()
+        }
+    }
 }
