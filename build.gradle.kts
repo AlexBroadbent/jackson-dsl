@@ -77,19 +77,19 @@ publishing {
 
             pom.withXml {
                 asNode().apply {
-                    appendNode("description", "https://github.com/ajab/jackson-dsl")
+                    appendNode("description", "https://github.com/AlexBroadbent/jackson-dsl")
                     appendNode("name", rootProject.name)
-                    appendNode("url", "https://github.com/ajab/jackson-dsl")
+                    appendNode("url", "https://github.com/AlexBroadbent/jackson-dsl")
 
                     appendNode("licenses").appendNode("license").apply {
 
                     }
                     appendNode("developers").appendNode("developer").apply {
-                        appendNode("id", "ajab")
+                        appendNode("id", "AlexBroadbent")
                         appendNode("name", "Alex Broadbent")
                     }
                     appendNode("scm").apply {
-                        appendNode("url", "https://github.com/ajab/jackson-dsl")
+                        appendNode("url", "https://github.com/AlexBroadbent/jackson-dsl")
                     }
                 }
             }
@@ -107,21 +107,21 @@ bintray {
     pkg.apply {
         repo = "Jackson-DSL"
         name = project.name
-        userOrg = "ajab"
+        userOrg = "AlexBroadbent"
 
-        githubRepo = "https://github.com/ajab/jackson-dsl"
-        vcsUrl = "https://github.com/ajab/jackson-dsl.git"
+        githubRepo = "https://github.com/AlexBroadbent/jackson-dsl"
+        vcsUrl = "https://github.com/AlexBroadbent/jackson-dsl.git"
         description = "A type-safe builder wrapped around the Jackson JSON library"
         setLabels("kotlin", "jackson", "dsl", "extension")
         setLicenses("MIT")
         desc = description
-        websiteUrl = "https://github.com/ajab/jackson-dsl"
-        issueTrackerUrl = "https://github.com/ajab/jackson-dsl/issues"
+        websiteUrl = "https://github.com/AlexBroadbent/jackson-dsl"
+        issueTrackerUrl = "https://github.com/AlexBroadbent/jackson-dsl/issues"
         githubReleaseNotesFile = "README.md"
 
         version.apply {
             name = project.version.toString()
-            desc = "https://github.com/ajab/jackson-dsl"
+            desc = "https://github.com/AlexBroadbent/jackson-dsl"
             released = Date().toString()
             vcsTag = project.version.toString()
         }

@@ -1,7 +1,7 @@
 
-![Github Actions Build](https://img.shields.io/github/workflow/status/ajab/jackson-dsl/CI)
-![Codecov](https://img.shields.io/codecov/c/github/ajab/jackson-dsl)
-[![Download](https://api.bintray.com/packages/ajab/Jackson-DSL/jackson-dsl/images/download.svg)](https://bintray.com/ajab/Jackson-DSL/jackson-dsl/_latestVersion)
+![Github Actions Build](https://img.shields.io/github/workflow/status/AlexBroadbent/jackson-dsl/CI)
+![Codecov](https://img.shields.io/codecov/c/github/AlexBroadbent/jackson-dsl)
+[![Download](https://api.bintray.com/packages/AlexBroadbent/Jackson-DSL/jackson-dsl/images/download.svg)](https://bintray.com/AlexBroadbent/Jackson-DSL/jackson-dsl/_latestVersion)
 
 ---
 
