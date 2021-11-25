@@ -1,14 +1,13 @@
 package net.alexbroadbent.jackson.dsl
 
 import com.fasterxml.jackson.databind.node.ObjectNode
-import io.kotlintest.IsolationMode
-import io.kotlintest.TestCaseOrder
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.ShouldSpec
+import io.kotest.core.spec.IsolationMode
+import io.kotest.core.spec.style.ShouldSpec
+import io.kotest.core.test.TestCaseOrder
+import io.kotest.matchers.shouldBe
 
 class BuilderSpec : ShouldSpec({
-
-    "Check simple builders" {
+    context("Check simple builders") {
         should("build array") {
             val json = array {
                 string("foo")
@@ -68,7 +67,7 @@ class BuilderSpec : ShouldSpec({
         }
     }
 
-    "Check nested builders" {
+    context("Check nested builders") {
         should("build mixed array") {
             val json = array {
                 string("foo")
