@@ -26,8 +26,10 @@ jacoco {
     toolVersion = "0.8.7"
 }
 
-val TaskContainer.`kotlinSourcesJar`: TaskProvider<org.gradle.jvm.tasks.Jar>
-    get() = named<org.gradle.jvm.tasks.Jar>("kotlinSourcesJar")
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
 
 tasks {
     compileKotlin {
