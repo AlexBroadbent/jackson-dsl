@@ -1,9 +1,3 @@
 .gradle/
 .idea/
 build/
-
-jackson-dsl.iml
-
-gradle.properties
-
-secret-keys.gpg
