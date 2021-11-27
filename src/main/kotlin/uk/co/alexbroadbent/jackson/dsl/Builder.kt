@@ -16,8 +16,8 @@ abstract class JacksonObject(val node: JsonNode) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-        return (node == (other as JacksonObject).node)
+        if (other !is JacksonObject) return false
+        return node == other.node
     }
 
     override fun toString(): String = mapper.writeValueAsString(node)
@@ -47,6 +47,7 @@ class JsonObject(node: ObjectNode = mapper.createObjectNode()) : JacksonObject(n
         (node as ObjectNode).replace(key, value)
     }
 }
+
 
 class JsonArray(array: ArrayNode = mapper.createArrayNode()) : JacksonObject(array) {
 
