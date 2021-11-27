@@ -1,4 +1,4 @@
-package net.alexbroadbent.jackson.dsl
+package uk.co.alexbroadbent.jackson.dsl
 
 import com.fasterxml.jackson.databind.node.ObjectNode
 import io.kotest.core.spec.IsolationMode
