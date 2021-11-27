@@ -1,6 +1,6 @@
 
 ![Github Actions Build](https://img.shields.io/github/workflow/status/AlexBroadbent/jackson-dsl/CI)
-![Codecov](https://img.shields.io/codecov/c/github/AlexBroadbent/jackson-dsl)
+[![codecov](https://codecov.io/gh/AlexBroadbent/jackson-dsl/branch/master/graph/badge.svg?token=zHRcRB6bLk)](https://codecov.io/gh/AlexBroadbent/jackson-dsl)
 
 ---
 
