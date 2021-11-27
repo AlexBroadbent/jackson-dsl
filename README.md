@@ -1,7 +1,6 @@
 
 ![Github Actions Build](https://img.shields.io/github/workflow/status/AlexBroadbent/jackson-dsl/CI)
 ![Codecov](https://img.shields.io/codecov/c/github/AlexBroadbent/jackson-dsl)
-[![Download](https://api.bintray.com/packages/AlexBroadbent/Jackson-DSL/jackson-dsl/images/download.svg)](https://bintray.com/AlexBroadbent/Jackson-DSL/jackson-dsl/_latestVersion)
 
 ---
 
@@ -9,6 +8,8 @@
 
 
 A type-safe builder wrapped around the [Jackson JSON library](https://github.com/FasterXML/jackson).
+
+The aim of this project is to reduce the amount of boilerplate code required to instantiate JSON objects in code.
 
  
 
@@ -30,14 +31,14 @@ boolean | Boolean | BooleanNode | `boolean(true)`
 
 ### Objects
 
-The `object` (or `obj` as an alias) function provides a wrapper for the Jackson Type `ObjectNode`, which takes a `key` and a `value` where the `value` is in the type of the function.
+The `object` (or `obj` as an alias) function provides a wrapper for the Jackson Type `ObjectNode`, which takes a `key` and a `value` where the `value` is any primitive, object or array.
 
-_Note that the `object` function is wrapped with backticks (\`) as it is a keyword in Kotlin._ 
+_Note that the `object` function is wrapped with backticks (\`) as "object" is a keyword in Kotlin._ 
 
 The function:
 
 ```kotlin
-val obj = `object` {
+val json = `object` {
     string("one", "two")
     int("three", 4)
 }
@@ -45,7 +46,7 @@ val obj = `object` {
 
 produces the object:
 
-```json5
+```json
 {
   "one": "two",
   "three": 4
@@ -55,12 +56,12 @@ produces the object:
 
 ### Arrays
 
-The `array` function (or `arr` as an alias) provides a wrapper for the Jackson Type `ArrayNode`, which takes a set of values: primitives, objects arrays.
+The `array` function (or `arr` as an alias) provides a wrapper for the Jackson Type `ArrayNode`, which takes a list of any primitives, objects and arrays.
 
 The function:
 
 ```kotlin
-val obj = array {
+val json = array {
     long(67214621784621)
     boolean(true)
 }
@@ -68,7 +69,7 @@ val obj = array {
 
 produces the array:
 
-```json5
+```json
 [
   67214621784621,
   true
@@ -80,7 +81,7 @@ produces the array:
 
 ### Nesting
 
-Objects and Arrays can be nested, to any supported depth by the Jackson JSON library.
+Objects and Arrays can be nested to any supported depth by the Jackson JSON library.
 
 For example:
 
@@ -99,7 +100,7 @@ val json = array {
 }
 ```
 
-produces the array:
+produces the JSON array:
 
 ```json5
 [
