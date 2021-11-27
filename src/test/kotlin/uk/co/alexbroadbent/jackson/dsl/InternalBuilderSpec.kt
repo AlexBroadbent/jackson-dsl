@@ -16,7 +16,7 @@ class InternalBuilderSpec : BaseSpec({
         val obj2 = `object` { string("bar", "foo") }
         val arr1 = array { string("foo") }
 
-        obj1 shouldBe obj1
+        (obj1 == obj1) shouldBe true
         obj1 shouldNotBe obj2
         obj1 shouldNotBe null
         obj1 shouldNotBe "foo"
