@@ -1,7 +1,7 @@
 
 ![Github Actions Build](https://img.shields.io/github/workflow/status/AlexBroadbent/jackson-dsl/CI)
 [![codecov](https://codecov.io/gh/AlexBroadbent/jackson-dsl/branch/master/graph/badge.svg?token=zHRcRB6bLk)](https://codecov.io/gh/AlexBroadbent/jackson-dsl)
-
+![Maven Central](https://img.shields.io/maven-central/v/uk.co.alexbroadbent/jackson-dsl)
 ---
 
 # Jackson DSL
