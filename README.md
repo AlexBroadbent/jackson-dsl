@@ -53,6 +53,14 @@ produces the object:
 }
 ```
 
+which is equivalent to:
+
+```kotlin
+val jackson = mapper.createObjectNode()
+  .put("one", "two")
+  .put("three", 4)
+```
+
 
 ### Arrays
 
@@ -74,6 +82,14 @@ produces the array:
   67214621784621,
   true
 ]
+```
+
+which is equivalent to:
+
+```kotlin
+val jackson = mapper.createArrayNode()
+  .add(67214621784621)
+  .add(true)
 ```
 
 
@@ -115,4 +131,21 @@ produces the JSON array:
     }
   ]
 ]
+```
+
+which is equivalent to:
+
+```kotlin
+val nested2 = mapper.createObjectNode()
+  .put("two", "three")
+  .set<ObjectNode>(
+    "four", mapper.createObjectNode()
+      .put("five", 6)
+  )
+val nested1 = mapper.createArrayNode()
+  .add("bar")
+  .add(nested2)
+val jackson = mapper.createArrayNode()
+  .add("foo")
+  .add(nested1)
 ```
