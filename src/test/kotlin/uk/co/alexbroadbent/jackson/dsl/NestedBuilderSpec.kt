@@ -6,11 +6,11 @@ import io.kotest.matchers.shouldBe
 class NestedBuilderSpec : BaseSpec({
     should("build mixed array") {
         val json = array {
-            string("foo")
+            add("foo")
             array {
-                string("bar")
+                add("bar")
                 `object` {
-                    string("two", "three")
+                    put("two", "three")
                 }
             }
         }
@@ -31,11 +31,11 @@ class NestedBuilderSpec : BaseSpec({
 
     should("build mixed object") {
         val json = `object` {
-            int("one", 987)
+            put("one", 987)
             `object`("two") {
-                boolean("three", false)
+                put("three", false)
                 array("four") {
-                    string("foobar")
+                    add("foobar")
                 }
             }
         }
@@ -53,15 +53,15 @@ class NestedBuilderSpec : BaseSpec({
 
     should("build with shortened names object") {
         val json = obj {
-            int("one", 213)
+            put("one", 213)
             arr("two") {
-                boolean(false)
+                add(false)
                 obj {
-                    string("three", "bar")
+                    put("three", "bar")
                 }
             }
             obj("four") {
-                double("five", 3.14)
+                put("five", 3.14)
             }
         }
 
@@ -85,12 +85,12 @@ class NestedBuilderSpec : BaseSpec({
 
     should("build with shortened names array") {
         val json = arr {
-            int(213)
+            add(213)
             arr {
-                boolean(false)
+                add(false)
             }
             obj {
-                double("one", 3.14)
+                put("one", 3.14)
             }
         }
 
