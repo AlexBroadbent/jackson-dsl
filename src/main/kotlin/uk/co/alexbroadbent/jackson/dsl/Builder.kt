@@ -37,10 +37,15 @@ class JsonObject(node: ObjectNode = mapper.createObjectNode()) : JacksonObject(n
     fun array(key: String, value: JsonArray.() -> Unit) = set(key, JsonArray().apply(value).node)
     fun arr(key: String, value: JsonArray.() -> Unit) = array(key, value)
 
+    @Deprecated(message = "Use put(key, value)", replaceWith = ReplaceWith("put(key, value)"))
     fun string(key: String, value: String) = put(key, value)
+    @Deprecated(message = "Use put(key, value)", replaceWith = ReplaceWith("put(key, value)"))
     fun int(key: String, value: Int) = put(key, value)
+    @Deprecated(message = "Use put(key, value)", replaceWith = ReplaceWith("put(key, value)"))
     fun long(key: String, value: Long) = put(key, value)
+    @Deprecated(message = "Use put(key, value)", replaceWith = ReplaceWith("put(key, value)"))
     fun double(key: String, value: Double) = put(key, value)
+    @Deprecated(message = "Use put(key, value)", replaceWith = ReplaceWith("put(key, value)"))
     fun boolean(key: String, value: Boolean) = put(key, value)
 
     fun put(key: String, value: String) = set(key, TextNode(value))
@@ -63,11 +68,15 @@ class JsonArray(array: ArrayNode = mapper.createArrayNode()) : JacksonObject(arr
     fun array(value: JsonArray.() -> Unit) = add(JsonArray().apply(value).node)
     fun arr(value: JsonArray.() -> Unit) = array(value)
 
-    // @Deprecated(message = "Changing in favour of add(String)", replaceWith = ReplaceWith("add(value)"))
+    @Deprecated(message = "Use add(value)", replaceWith = ReplaceWith("add(value)"))
     fun string(value: String) = add(value)
+    @Deprecated(message = "Use add(value)", replaceWith = ReplaceWith("add(value)"))
     fun int(value: Int) = add(value)
+    @Deprecated(message = "Use add(value)", replaceWith = ReplaceWith("add(value)"))
     fun long(value: Long) = add(value)
+    @Deprecated(message = "Use add(value)", replaceWith = ReplaceWith("add(value)"))
     fun double(value: Double) = add(value)
+    @Deprecated(message = "Use add(value)", replaceWith = ReplaceWith("add(value)"))
     fun boolean(value: Boolean) = add(value)
 
     fun add(value: String) = add(TextNode(value))
