@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "uk.co.alexbroadbent"
-version = "0.1.0"
+version = "0.2.0"
 
 repositories {
     mavenCentral()
@@ -49,7 +49,7 @@ tasks {
         reports {
             xml.apply {
                 required.set(true)
-                destination = file("$buildDir/reports/jacoco/report.xml")
+                outputLocation.set(file("$buildDir/reports/jacoco/report.xml"))
             }
             csv.required.set(false)
             html.required.set(true)
