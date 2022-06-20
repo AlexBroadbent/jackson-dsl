@@ -28,6 +28,8 @@ long | Long | LongNode | `long(1575324315000)`
 double | Double | DoubleNode | `double(3.14)`  
 boolean | Boolean | BooleanNode | `boolean(true)`
 
+The functions are used in objects via the `put` method, and in arrays via the `add` method. _The usage of the type-based function names has been deprecated in order to align closer to the Jackson API._
+
 
 ### Objects
 
@@ -39,8 +41,8 @@ The function:
 
 ```kotlin
 val json = `object` {
-    string("one", "two")
-    int("three", 4)
+    put("one", "two")
+    put("three", 4)
 }
 ```
 
@@ -70,8 +72,8 @@ The function:
 
 ```kotlin
 val json = array {
-    long(67214621784621)
-    boolean(true)
+    add(67214621784621)
+    add(true)
 }
 ```
 
@@ -103,13 +105,13 @@ For example:
 
 ```kotlin
 val json = array {
-    string("foo")
+    add("foo")
     array {
-        string("bar")
+        add("bar")
         `object` {
-            string("two", "three")
+            put("two", "three")
             `object`("four") {
-                int("five", 6)
+                put("five", 6)
             }
         }
     }
