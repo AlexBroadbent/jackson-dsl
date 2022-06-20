@@ -20,13 +20,13 @@ The aim of this project is to reduce the amount of boilerplate code required to 
 
 The following functions provide basic primitive types:
 
-Function | Kotlin Type Parameter | Jackson Type Equivalent | Example
----|---|---|---
-string | String | TextNode | `string("foobar")`  
-int | Int | TextNode | `int(18)`  
-long | Long | LongNode | `long(1575324315000)`  
-double | Double | DoubleNode | `double(3.14)`  
-boolean | Boolean | BooleanNode | `boolean(true)`
+Kotlin Type Parameter | Jackson Type Equivalent
+---|---
+String | TextNode
+Int | TextNode
+Long | LongNode
+Double | DoubleNode
+Boolean | BooleanNode
 
 The functions are used in objects via the `put` method, and in arrays via the `add` method. _The usage of the type-based function names has been deprecated in order to align closer to the Jackson API._
 
