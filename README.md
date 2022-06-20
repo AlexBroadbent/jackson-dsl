@@ -18,7 +18,7 @@ The aim of this project is to reduce the amount of boilerplate code required to 
 
 ### Primitives
 
-The following functions provide basic primitive types:
+The following Koltin data types are supported via the Jackson equivalents:
 
 Kotlin Type Parameter | Jackson Type Equivalent
 ---|---
