@@ -7,6 +7,20 @@
 # Jackson DSL
 
 
+## UPDATE:
+This project has been archived in favour of [JSON-DSL](https://github.com/AlexBroadbent/json-dsl), which supports both Jackson and Gson in a single project.
+
+The artifacts have changed to:
+```
+implementation("com.abroadbent:jackson-dsl:0.2.0")
+implementation("com.abroadbent:gson-dsl:0.2.0")
+```
+
+
+---
+
+
+
 A type-safe builder wrapped around the [Jackson JSON library](https://github.com/FasterXML/jackson).
 
 The aim of this project is to reduce the amount of boilerplate code required to instantiate JSON objects in code.
